@@ -31,10 +31,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: execute py script to generate movie poster wall
-        run: python image_wall.py -i=${{ github.event.inputs.doubanId }} -c=18 -r=8 -o=8 -rd=True
+        run: python image_wall.py -i=${{ github.event.inputs.doubanId }} -c=8 -r=30 -o=6 -rd=True
 
-      - name: execute py script to generate album cover wall
-        run: python image_wall.py -i=${{ github.event.inputs.doubanId }} -m='music' -c=10 -r=8 -o=8 -rd=True
         
       - name: commit caches
         run: |
@@ -56,4 +54,4 @@ jobs:
           retention-days: 1
           path: |
             output/${{ github.event.inputs.doubanId }}_movie.jpg
-            output/${{ github.event.inputs.doubanId }}_music.jpg
+            
